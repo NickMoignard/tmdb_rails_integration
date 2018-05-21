@@ -1,7 +1,5 @@
 
 module TMDB
-
-
     def self.search(options = {})
         raise ArgumentError, 'You must search for something' if options[:query].blank?
         
@@ -50,7 +48,7 @@ module TMDB
             self.results = parse_results(json)
         end
 
-        def parse_results
+        def parse_results(json)
             json.fetch("results", []).map { |movie| TMDB::Movie.new(movie) }
         end
     end

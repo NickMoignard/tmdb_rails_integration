@@ -1,0 +1,9 @@
+<%= form_tag( root_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :movie, params[:movie] %>
+    <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<h3>Results</h3>
+<% @movies.each do |m| %>
+    <p><%=m.title  %></p>
+<% end %>
